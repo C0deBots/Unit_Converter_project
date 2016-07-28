@@ -75,7 +75,7 @@ public class Length extends Activity{
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 in_label = parent.getItemAtPosition(position).toString();
-
+                convertLength();
             }
 
             @Override
@@ -94,7 +94,7 @@ public class Length extends Activity{
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 out_label = parent.getItemAtPosition(position).toString();
-
+                convertLength();
             }
 
             @Override
@@ -108,42 +108,67 @@ public class Length extends Activity{
     }
 
     public void lengthClciked(View view) {
+        if(input=="0")
+            input="";
         if (view.getId() == R.id.one) {
+            if(length_input.length()>10)
+                return;
             input = input + "1";
         }
         if (view.getId() == R.id.two) {
+            if(length_input.length()>10)
+                return;
             input = input + "2";
         }
         if (view.getId() == R.id.three) {
+            if(length_input.length()>10)
+                return;
             input = input + "3";
         }
         if (view.getId() == R.id.four) {
+            if(length_input.length()>10)
+                return;
             input = input + "4";
         }
         if (view.getId() == R.id.five) {
+            if(length_input.length()>10)
+                return;
             input = input + "5";
         }
         if (view.getId() == R.id.six) {
+            if(length_input.length()>10)
+                return;
             input = input + "6";
         }
         if (view.getId() == R.id.seven) {
+            if(length_input.length()>10)
+                return;
             input = input + "7";
         }
         if (view.getId() == R.id.eight) {
+            if(length_input.length()>10)
+                return;
             input = input + "8";
         }
         if (view.getId() == R.id.nine) {
+            if(length_input.length()>10)
+                return;
             input = input + "9";
         }
         if (view.getId() == R.id.zero) {
+            if(length_input.length()>10)
+                return;
             input = input + "0";
         }
         if (view.getId() == R.id.erase) {
-            if (input != null && input.length() > 0)
+            if(length_input.length()==1)
+                input="0";
+            if (input != null && input.length() > 1)
                 input = input.substring(0, input.length() - 1);
         }
+
         length_input.setText(input);
-        in_value = Double.parseDouble(input);
+        in_value = Double.parseDouble(length_input.getText().toString());
 
         convertLength();
     }
@@ -758,6 +783,82 @@ public class Length extends Activity{
             out_value=in_value*x;
             length_output.setText(""+out_value+" M");
         }
+
+
+        /// for converting miles to else  ////////////
+
+        else if(in_label==miles && out_label==nano)
+        {
+            String value = "1609344000000";
+            double x= Double.parseDouble(value);
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" nm");
+        }
+        else if (in_label == miles && out_label == micro) {
+                String val = "160934400";
+                double x = Double.parseDouble(val);
+                out_value = in_value * x;
+                length_output.setText("" + out_value + " um");
+            }
+        else if(in_label==miles && out_label==mili)
+        {
+
+            double x = 1609344;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" mm");
+        }
+        else if(in_label==miles && out_label==centi)
+        {
+
+            double x = 160934.4;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" cm");
+        }
+        else if(in_label==miles && out_label==meter)
+        {
+
+            double x = 1609.344;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" m");
+        }
+        else if(in_label==miles && out_label==kilo)
+        {
+
+            double x = 1.609;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" km");
+        }
+        else if(in_label==miles && out_label==inch)
+        {
+
+            double x = 63360;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" in");
+        }
+        else if(in_label==miles && out_label==feet)
+        {
+
+            double x = 5280;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" ft");
+        }
+        else if(in_label==miles && out_label==yard)
+        {
+
+            double x = 1760;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" yd");
+        }
+        else if(in_label==miles && out_label==miles)
+        {
+
+            double x = 1;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" M");
+        }
+
+
+
 
     }
 
