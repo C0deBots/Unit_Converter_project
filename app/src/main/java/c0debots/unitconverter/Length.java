@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +23,7 @@ public class Length extends Activity{
     private  double in_value,out_value;
     private Spinner input_spinner,output_spinner;
     private TextView length_input,length_output;
+    DecimalFormat df;
     private String nano,micro,mili,centi,meter,kilo,inch,feet,yard,miles,in_label,out_label;
 
 // test change
@@ -38,14 +41,12 @@ public class Length extends Activity{
         feet="Feet";
         yard="Yards";
         miles="Miles";
-
         input="";
         output="";
         in_value=0.0;
         out_value=0.0;
         keyboard= new Keyboard();
         in_value=0;
-
         input_spinner = (Spinner) findViewById(R.id.length_input_spinner);
         output_spinner= (Spinner) findViewById(R.id.lenght_output_spinner);
 
@@ -161,7 +162,7 @@ public class Length extends Activity{
         else if(in_label==nano && out_label==micro)
         {
             out_value=in_value*0.001;
-            length_output.setText(""+out_value+" um");
+            length_output.setText(out_value+" um");
         }
         else if(in_label==nano && out_label==mili)
         {
@@ -185,6 +186,7 @@ public class Length extends Activity{
             out_value=in_value*multiplier;
             length_output.setText(""+out_value+" km");
         }
+
         else if(in_label==nano && out_label==inch)
         {
             double x= 0.00000003937008;
@@ -406,13 +408,357 @@ public class Length extends Activity{
         {
             double x = 1000000000;
             out_value=in_value*x;
+            length_output.setText(""+out_value+" nm");
+        }
+        else if(in_label==meter && out_label==micro)
+        {
+            double x = 1000000;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" um");
+        }
+        else if(in_label==meter && out_label==mili)
+        {
+            double x = 1000;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" mm");
+        }
+        else if(in_label==meter && out_label==centi)
+        {
+            double x = 100;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" cm");
+        }
+        else if(in_label==meter && out_label==meter)
+        {
+            double x = 1;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" m");
+        }
+        else if(in_label==meter && out_label==kilo)
+        {
+            double x = 0.001;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" km");
+        }
+        else if(in_label==meter && out_label==inch)
+        {
+            double x = 39.5;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" in");
+        }
+        else if(in_label==meter && out_label==feet)
+        {
+            double x = 3.30;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" ft");
+        }
+        else if(in_label==meter && out_label==yard)
+        {
+            double x = 1.09;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" yd");
+        }
+        else if(in_label==meter && out_label==miles)
+        {
+            double x = 0.000621;
+            out_value=in_value*x;
             length_output.setText(""+out_value+" M");
         }
 
 
-    }
-    public void tedfgst()
-    {
+        // for converting km to else  /////////
+
+        else if(in_label==kilo && out_label==nano)
+        {
+            String value ="1000000000000";
+            double x = Double.parseDouble(value);
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" nm");
+        }
+        else if(in_label==kilo && out_label==micro)
+        {
+
+            double x = 1000000000;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" um");
+        }
+        else if(in_label==kilo && out_label==mili)
+        {
+
+            double x = 1000000;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" mm");
+        }
+        else if(in_label==kilo && out_label==centi)
+        {
+
+            double x = 100000;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" cm");
+        }
+        else if(in_label==kilo && out_label==meter)
+        {
+
+            double x = 1000;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" m");
+        }
+        else if(in_label==kilo && out_label==kilo)
+        {
+
+            double x = 1;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" km");
+        }
+        else if(in_label==kilo && out_label==inch)
+        {
+
+            double x = 39370;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" in");
+        }
+        else if(in_label==kilo && out_label==feet)
+        {
+
+            double x = 3280;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" ft");
+        }
+        else if(in_label==kilo && out_label==miles)
+        {
+
+            double x = 0.627;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" M");
+        }
+        else if(in_label==kilo && out_label==yard)
+        {
+
+            double x = 1093;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" yd");
+        }
+
+    /////// for converting inches to else   //////////////
+
+        else if(in_label==inch && out_label==nano)
+        {
+
+            double x = 25400000;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" nm");
+        }
+        else if(in_label==inch && out_label==micro)
+        {
+
+            double x = 25400;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" um");
+        }
+        else if(in_label==inch && out_label==mili)
+        {
+
+            double x = 25.4;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" mm");
+        }
+        else if(in_label==inch && out_label==centi)
+        {
+
+            double x = 2.54;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" cm");
+        }
+        else if(in_label==inch && out_label==meter)
+        {
+
+            double x = 0.0254;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" m");
+        }
+        else if(in_label==inch && out_label==kilo)
+        {
+
+            double x = 0.000025;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" km");
+        }
+        else if(in_label==inch && out_label==inch)
+        {
+
+            double x = 1;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" in");
+        }
+        else if(in_label==inch && out_label==feet)
+        {
+
+            double x =0.0833;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" ft");
+        }
+        else if(in_label==inch && out_label==yard)
+        {
+
+            double x = 0.027;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" yd");
+        }
+        else if(in_label==inch && out_label==miles)
+        {
+
+            double x = 0.000016;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" M");
+        }
+
+
+        // for converting feets to other  ///////////
+
+        else if(in_label==feet && out_label==nano)
+        {
+
+            double x = 304800000;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" nm");
+        }
+        else if(in_label==feet && out_label==micro)
+        {
+
+            double x = 304800;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" um");
+        }
+        else if(in_label==feet && out_label==mili)
+        {
+
+            double x = 304.8;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" mm");
+        }
+        else if(in_label==feet && out_label==centi)
+        {
+
+            double x = 30.48;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" cm");
+        }
+        else if(in_label==feet && out_label==meter)
+        {
+
+            double x = 0.3048;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" m");
+        }
+        else if(in_label==feet && out_label==inch)
+        {
+
+            double x = 12;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" in");
+        }
+        else if(in_label==feet && out_label==kilo)
+        {
+
+            double x = 0.000305;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" km");
+        }
+        else if(in_label==feet && out_label==feet)
+        {
+
+            double x = 1;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" ft");
+        }
+        else if(in_label==feet && out_label==yard)
+        {
+
+            double x = 0.333;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" yd");
+        }
+        else if(in_label==feet && out_label==miles)
+        {
+
+            double x = 0.000189;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" M");
+        }
+
+
+        // for converting yards to else  /////////
+        else if(in_label==yard && out_label==nano)
+        {
+
+            double x = 914400000;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" nm");
+        }
+        else if(in_label==yard && out_label==micro)
+        {
+
+            double x = 914400;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" um");
+        }
+        else if(in_label==yard && out_label==mili)
+        {
+
+            double x = 914.4;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" mm");
+        }
+        else if(in_label==yard && out_label==centi)
+        {
+
+            double x = 91.4;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" cm");
+        }
+        else if(in_label==yard && out_label==meter)
+        {
+
+            double x = 0.914;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" nm");
+        }
+        else if(in_label==yard && out_label==kilo)
+        {
+
+            double x = 0.000914;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" km");
+        }
+        else if(in_label==yard && out_label==inch)
+        {
+
+            double x = 36;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" in");
+        }
+        else if(in_label==yard && out_label==feet)
+        {
+
+            double x = 3;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" ft");
+        }
+        else if(in_label==yard && out_label==yard)
+        {
+
+            double x = 1;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" yd");
+        }
+        else if(in_label==yard && out_label==miles)
+        {
+
+            double x = 0.000568;
+            out_value=in_value*x;
+            length_output.setText(""+out_value+" M");
+        }
 
     }
+
 }
