@@ -1,8 +1,14 @@
 package c0debots.unitconverter;
 
+import android.app.ActionBar;
 import android.app.Activity;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -17,10 +23,11 @@ import java.util.List;
 public class Volume extends Activity {
 
     private Spinner input_spinner,output_spinner;
-    private TextView volume_input,volume_output;
+    private TextView length_input,volume_output;
     private Keyboard keyboard;
     private String input,output,in_label,out_label;
     private Double in_value,out_value;
+    private ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +35,24 @@ public class Volume extends Activity {
         setContentView(R.layout.volume_converter);
 
 
+        actionBar = getActionBar();
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#00695C"));
+
+        actionBar.setBackgroundDrawable(colorDrawable);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.parseColor("#004D40"));
+        }
+
+
+
 
 
         input_spinner = (Spinner) findViewById(R.id.length_input_spinner);
         output_spinner= (Spinner) findViewById(R.id.lenght_output_spinner);
-        volume_input = (TextView) findViewById(R.id.length_input);
+        length_input = (TextView) findViewById(R.id.length_input);
         volume_output= (TextView) findViewById(R.id.length_output);
         keyboard = new Keyboard();
         input="";
@@ -93,54 +113,89 @@ public class Volume extends Activity {
 
     public void buttonClicked(View view)
     {
-        if(view.getId()==R.id.one)
-        {
-            input=input+"1";
+        if(input=="0")
+            input="";
+        if (view.getId() == R.id.one) {
+            if(length_input.length()>10)
+                return;
+            input = input + "1";
         }
-        if(view.getId()==R.id.two)
+        if(view.getId()==R.id.sing)
+            return;
+        if(view.getId()==R.id.decimal)
         {
-            input=input+"2";
+            if(length_input.length()>10)
+                return;
+            if(input.equals(""))
+                return;
+            input = input + ".";
         }
-        if(view.getId()==R.id.three)
+        if(view.getId()==R.id.invert)
         {
-            input=input+"3";
-        }
-        if(view.getId()==R.id.four)
-        {
-            input=input+"4";
-        }
-        if(view.getId()==R.id.five)
-        {
-            input=input+"5";
-        }
-        if(view.getId()==R.id.six)
-        {
-            input=input+"6";
-        }
-        if(view.getId()==R.id.seven)
-        {
-            input=input+"7";
-        }
-        if(view.getId()==R.id.eight)
-        {
-            input=input+"8";
-        }
-        if(view.getId()==R.id.nine)
-        {
-            input=input+"9";
-        }
-        if(view.getId()==R.id.zero)
-        {
-            input=input+"0";
-        }
-        if(view.getId()==R.id.erase)
-        {
-            if(input!=null && input.length()>0)
-            input = input.substring(0,input.length()-1);
+            if(input.equals(""))
+                return;
+            String temp = in_label;
+            in_label=out_label;
+            out_label=temp;
+
         }
 
-        volume_input.setText(input);
-        in_value = Double.parseDouble(input);
+        if (view.getId() == R.id.two) {
+            if(length_input.length()>10)
+                return;
+            input = input + "2";
+        }
+        if (view.getId() == R.id.three) {
+            if(length_input.length()>10)
+                return;
+            input = input + "3";
+        }
+        if (view.getId() == R.id.four) {
+            if(length_input.length()>10)
+                return;
+            input = input + "4";
+        }
+        if (view.getId() == R.id.five) {
+            if(length_input.length()>10)
+                return;
+            input = input + "5";
+        }
+        if (view.getId() == R.id.six) {
+            if(length_input.length()>10)
+                return;
+            input = input + "6";
+        }
+        if (view.getId() == R.id.seven) {
+            if(length_input.length()>10)
+                return;
+            input = input + "7";
+        }
+        if (view.getId() == R.id.eight) {
+            if(length_input.length()>10)
+                return;
+            input = input + "8";
+        }
+        if (view.getId() == R.id.nine) {
+            if(length_input.length()>10)
+                return;
+            input = input + "9";
+        }
+        if (view.getId() == R.id.zero) {
+            if(length_input.length()>10)
+                return;
+            input = input + "0";
+        }
+        if (view.getId() == R.id.erase) {
+            if(length_input.length()==1)
+                input="0";
+            if (input != null && input.length() > 1)
+                input = input.substring(0, input.length() - 1);
+        }
+
+        if(length_input.getText().toString()!="") {
+            length_input.setText(input);
+            in_value = Double.parseDouble(length_input.getText().toString());
+        }
 
 
         convertVolume();

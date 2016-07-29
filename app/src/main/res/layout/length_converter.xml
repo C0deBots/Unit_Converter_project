@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:textAlignment="center"
+    android:background="#F5F5F5">
 
     <TextView
         android:layout_width="wrap_content"
@@ -10,31 +12,31 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="0"
         android:singleLine="true"
-        android:textSize="35sp"
+        android:textColor="#00000F"
+        android:textSize="50sp"
         android:id="@+id/length_input"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="27dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="27dp" />
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/length_input_spinner"
+        android:spinnerMode="dropdown"
         android:layout_below="@+id/length_input"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginRight="200dp"
-        android:spinnerMode="dialog" />
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#00695C" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="0"
-        android:textSize="35sp"
+        android:textColor="#00000F"
+        android:textSize="50sp"
         android:textStyle="bold"
         android:singleLine="true"
         android:id="@+id/length_output"
@@ -46,11 +48,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lenght_output_spinner"
+        android:spinnerMode="dropdown"
         android:layout_below="@+id/length_output"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginRight="200dp"
-        android:spinnerMode="dialog" />
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="10dp"
+        android:backgroundTint="#00695C" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -79,7 +81,7 @@
                     android:layout_width="95dp"
                     android:layout_height="90dp"
                     android:textSize="30dp"
-                    android:background="#EEEEEE"
+                    android:background="#E0E0E0"
                     android:onClick="lengthClciked"
                     android:textColor="#00000F" />
 
@@ -90,7 +92,7 @@
                     android:text="8"
                     android:layout_width="95dp"
                     android:layout_height="90dp"
-                    android:background="#EEEEEE"
+                    android:background="#E0E0E0"
                     android:onClick="lengthClciked"
                     android:textColor="#00000F" />
 
@@ -101,7 +103,7 @@
                     android:text="9"
                     android:layout_width="95dp"
                     android:layout_height="90dp"
-                    android:background="#EEEEEE"
+                    android:background="#E0E0E0"
                     android:onClick="lengthClciked"
                     android:textColor="#00000F" />
 
@@ -118,7 +120,7 @@
                     android:layout_column="0"
                     android:layout_width="95dp"
                     android:layout_height="90dp"
-                    android:background="#EEEEEE"
+                    android:background="#E0E0E0"
                     android:onClick="lengthClciked"
                     android:textColor="#00000F" />
 
@@ -129,7 +131,7 @@
                     android:layout_column="1"
                     android:layout_width="95dp"
                     android:layout_height="90dp"
-                    android:background="#EEEEEE"
+                    android:background="#E0E0E0"
                     android:onClick="lengthClciked"
                     android:textColor="#00000F" />
 
@@ -140,7 +142,7 @@
                     android:layout_column="2"
                     android:layout_width="95dp"
                     android:layout_height="90dp"
-                    android:background="#EEEEEE"
+                    android:background="#E0E0E0"
                     android:onClick="lengthClciked"
                     android:textColor="#00000F" />
 
@@ -157,7 +159,7 @@
                     android:layout_column="0"
                     android:layout_width="95dp"
                     android:layout_height="90dp"
-                    android:background="#EEEEEE"
+                    android:background="#E0E0E0"
                     android:onClick="lengthClciked"
                     android:textColor="#00000F" />
 
@@ -168,7 +170,7 @@
                     android:layout_column="1"
                     android:layout_width="95dp"
                     android:layout_height="90dp"
-                    android:background="#EEEEEE"
+                    android:background="#E0E0E0"
                     android:onClick="lengthClciked"
                     android:textColor="#00000F" />
 
@@ -179,7 +181,7 @@
                     android:layout_column="2"
                     android:layout_width="95dp"
                     android:layout_height="90dp"
-                    android:background="#EEEEEE"
+                    android:background="#E0E0E0"
                     android:onClick="lengthClciked"
                     android:textColor="#00000F" />
 
@@ -196,7 +198,7 @@
                     android:layout_column="0"
                     android:layout_width="95dp"
                     android:layout_height="90dp"
-                    android:background="#EEEEEE"
+                    android:background="#E0E0E0"
                     android:onClick="lengthClciked"
                     android:textColor="#00000F" />
 
@@ -207,7 +209,7 @@
                     android:layout_column="1"
                     android:layout_width="95dp"
                     android:layout_height="90dp"
-                    android:background="#EEEEEE"
+                    android:background="#E0E0E0"
                     android:onClick="lengthClciked"
                     android:textColor="#00000F" />
 
@@ -219,7 +221,7 @@
                     android:layout_column="2"
                     android:layout_width="95dp"
                     android:layout_height="90dp"
-                    android:background="#EEEEEE"
+                    android:background="#E0E0E0"
                     android:onClick="lengthClciked"
                     android:textColor="#00000F" />
             </TableRow>
@@ -240,8 +242,10 @@
                 android:layout_row="0"
                 android:layout_column="0"
                 android:src="@drawable/erase"
-                android:background="#69F0AE"
-                android:onClick="lengthClciked" />
+                android:background="#00695C"
+                android:onClick="lengthClciked"
+                android:foregroundTint="#FFFFFF"
+                android:tint="#FFFFFF" />
 
             <ImageButton
                 android:layout_width="match_parent"
@@ -249,9 +253,10 @@
                 android:id="@+id/invert"
                 android:layout_row="1"
                 android:layout_column="0"
-                android:background="#69F0AE"
+                android:background="#00695C"
                 android:src="@drawable/invert"
-                android:onClick="lengthClciked" />
+                android:onClick="lengthClciked"
+                android:tint="#FFFFFF" />
 
             <ImageButton
                 android:layout_width="match_parent"
@@ -259,7 +264,7 @@
                 android:id="@+id/calculator"
                 android:layout_row="2"
                 android:layout_column="0"
-                android:background="#69F0AE"
+                android:background="#00695C"
                 android:src="@drawable/calculator"
                 android:onClick="lengthClciked" />
         </GridLayout>

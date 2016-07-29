@@ -39,4 +39,6 @@ public class Keyboard extends Activity{
         erase= (ImageButton) findViewById(R.id.erase);
 
     }
+
+
 }

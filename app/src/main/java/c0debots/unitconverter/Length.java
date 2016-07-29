@@ -1,8 +1,14 @@
 package c0debots.unitconverter;
 
+import android.app.ActionBar;
 import android.app.Activity;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -23,7 +29,9 @@ public class Length extends Activity{
     private  double in_value,out_value;
     private Spinner input_spinner,output_spinner;
     private TextView length_input,length_output;
+    private ActionBar actionBar;
     DecimalFormat df;
+    List<String> SpinnerArray;
     private String nano,micro,mili,centi,meter,kilo,inch,feet,yard,miles,in_label,out_label;
 
 // test change
@@ -31,6 +39,17 @@ public class Length extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.length_converter);
+        actionBar = getActionBar();
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#00695C"));
+
+        actionBar.setBackgroundDrawable(colorDrawable);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.parseColor("#004D40"));
+        }
+
         nano="Nanometers";
         micro="Microns";
         mili="Millimeters";
@@ -54,7 +73,7 @@ public class Length extends Activity{
         length_output = (TextView) findViewById(R.id.length_output);
 
 
-        List<String> SpinnerArray = new ArrayList<String>();
+        SpinnerArray = new ArrayList<String>();
         SpinnerArray.add(nano);
         SpinnerArray.add(micro);
         SpinnerArray.add(mili);
@@ -115,6 +134,24 @@ public class Length extends Activity{
                 return;
             input = input + "1";
         }
+        if(view.getId()==R.id.decimal)
+        {
+            if(length_input.length()>10)
+                return;
+            if(input.equals(""))
+                return;
+            input = input + ".";
+        }
+        if(view.getId()==R.id.invert)
+        {
+            if(input.equals(""))
+                return;
+            String temp = in_label;
+            in_label=out_label;
+            out_label=temp;
+
+        }
+
         if (view.getId() == R.id.two) {
             if(length_input.length()>10)
                 return;
@@ -166,10 +203,14 @@ public class Length extends Activity{
             if (input != null && input.length() > 1)
                 input = input.substring(0, input.length() - 1);
         }
+        if(view.getId()==R.id.sing)
+            return;
 
-        length_input.setText(input);
-        in_value = Double.parseDouble(length_input.getText().toString());
 
+        if(length_input.getText().toString()!="") {
+            length_input.setText(input);
+            in_value = Double.parseDouble(length_input.getText().toString());
+        }
         convertLength();
     }
 
@@ -192,7 +233,7 @@ public class Length extends Activity{
         else if(in_label==nano && out_label==mili)
         {
             out_value=in_value*0.000001;
-            length_output.setText(""+out_value+" nm");
+            length_output.setText(""+out_value+" mm");
         }
         else if(in_label==nano && out_label==centi)
         {

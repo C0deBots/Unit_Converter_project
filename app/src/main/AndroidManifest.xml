@@ -22,7 +22,7 @@
         <activity
         android:name=".Volume"
         android:label="Volume Converter"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/Widget.AppCompat.ActionBar.Solid">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
@@ -41,6 +41,19 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+
+        <activity
+            android:name=".Weight"
+            android:label="Weight Converter"
+            android:theme="@style/Widget.AppCompat.ActionBar.Solid">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
 
     </application>
 

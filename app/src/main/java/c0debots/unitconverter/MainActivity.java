@@ -89,7 +89,10 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(MainActivity.this,Length.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_area) {
+        } else if (id == R.id.nav_weight) {
+
+            Intent intent= new Intent(MainActivity.this,Weight.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_pressure) {
 
