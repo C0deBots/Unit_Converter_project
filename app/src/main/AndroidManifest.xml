@@ -55,6 +55,18 @@
         </activity>
 
 
+        <activity
+            android:name=".Temperature"
+            android:label="Temperature Converter"
+            android:theme="@style/Widget.AppCompat.ActionBar.Solid">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
     </application>
 
 </manifest>

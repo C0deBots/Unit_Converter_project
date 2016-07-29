@@ -94,7 +94,10 @@ public class MainActivity extends AppCompatActivity
             Intent intent= new Intent(MainActivity.this,Weight.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_pressure) {
+        } else if (id == R.id.nav_temperature) {
+
+            Intent intent = new Intent(MainActivity.this,Temperature.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_share) {
 
