@@ -36,7 +36,7 @@ public class Weight extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.weight_converter);
+        setContentView(R.layout.weight_layout);
 
         actionBar = getActionBar();
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#00695C"));
